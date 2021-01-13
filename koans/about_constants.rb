@@ -1,11 +1,10 @@
-# frozen_string_literal: true
+require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-require File.expand_path("#{File.dirname(__FILE__)}/neo")
-
-C = 'top level'
+C = "top level"
 
 class AboutConstants < Neo::Koan
-  C = 'nested'
+
+  C = "nested"
 
   def test_nested_constants_may_also_be_referenced_with_relative_paths
     assert_equal 'nested', C
@@ -72,11 +71,9 @@ class AboutConstants < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  module MyAnimals
-    class Oyster < Animal
-      def legs_in_oyster
-        LEGS
-      end
+  class MyAnimals::Oyster < Animal
+    def legs_in_oyster
+      LEGS
     end
   end
 
